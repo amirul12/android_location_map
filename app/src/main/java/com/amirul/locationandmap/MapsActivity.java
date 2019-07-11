@@ -21,7 +21,9 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
@@ -83,10 +85,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 // Add a marker in Sydney and move the camera
 
-                LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                //LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                LatLng myLocation = new LatLng(23.7746944, 90.3755071);
+                LatLng Pirerbag = new LatLng(23.7883831, 90.3631309);
+                LatLng Shewrapara = new LatLng(23.7895415, 90.367637);
+
+
                 mMap.clear();
-                mMap.addMarker(new MarkerOptions().position(myLocation).title("MY Location"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation,12));
+                mMap.addMarker(new MarkerOptions().position(myLocation).title("shewrapara post office"));
+                mMap.addMarker(new MarkerOptions().position(Pirerbag).title("Pirerbag Chapra Masjid"));
+                mMap.addMarker(new MarkerOptions().position(Shewrapara).title("Shewrapara Central Jame Masjid"));
+                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation,12));
 
                 /*finding address from location*/
 
@@ -111,6 +120,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         if (addressList.get(0).getCountryName() !=null){
                             address +=addressList.get(0).getCountryName();
                         }
+
 
                         Toast.makeText(MapsActivity.this, ""+address, Toast.LENGTH_SHORT).show();
 
@@ -153,10 +163,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-            LatLng userLocation = new LatLng(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude());
+           // LatLng userLocation = new LatLng(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude());
             mMap.clear();
-            mMap.addMarker(new MarkerOptions().position(userLocation).title("Last User Location"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation,12));
+
+            //LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+            LatLng myLocation = new LatLng(23.7746944, 90.3755071);
+            LatLng Pirerbag = new LatLng(23.7883831, 90.3631309);
+            LatLng Shewrapara = new LatLng(23.7895415, 90.367637);
+
+
+            mMap.clear();
+            mMap.addMarker(new MarkerOptions().position(myLocation).title("shewrapara post office"));
+            mMap.addMarker(new MarkerOptions().position(Pirerbag).title("Pirerbag Chapra Masjid"));
+            mMap.addMarker(new MarkerOptions().position(Shewrapara).title("Shewrapara Central Jame Masjid"));
+
+           // mMap.addMarker(new MarkerOptions().position(userLocation).title("Last User Location"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pirerbag,12));
 
         }
 
