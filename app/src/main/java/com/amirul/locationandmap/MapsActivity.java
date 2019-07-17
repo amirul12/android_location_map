@@ -95,7 +95,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.addMarker(new MarkerOptions().position(myLocation).title("shewrapara post office"));
                 mMap.addMarker(new MarkerOptions().position(Pirerbag).title("Pirerbag Chapra Masjid"));
                 mMap.addMarker(new MarkerOptions().position(Shewrapara).title("Shewrapara Central Jame Masjid"));
-                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation,12));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation,12));
 
                 /*finding address from location*/
 
